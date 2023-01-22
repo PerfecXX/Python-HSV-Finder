@@ -3,8 +3,18 @@ from tkinter import *
 from tkinter import messagebox
 from PIL import Image,ImageTk
 import numpy as np
+import pyperclip
 # Camera Index
 camIndex = 0
+
+def get_lowerRange():
+    lowerRange = '{},{},{}'.format(get_lh(),get_ls(),get_lv())
+    pyperclip.copy(lowerRange)
+
+def get_upperRange():
+    upperRange = '({},{},{})'.format(get_uh(),get_us(),get_uv())
+    pyperclip.copy(upperRange)
+    
 
 def flip_cam():
     global cap
@@ -148,37 +158,37 @@ u_s.set(255)
 u_v.set(255)
 
 def get_lh():
-    return '{: .0f}'.format(l_h.get())
+    return '{:.0f}'.format(l_h.get())
 
 def lh_changed(event):
     lhShow.configure(text=get_lh())
 
 def get_ls():
-    return '{: .0f}'.format(l_s.get())
+    return '{:.0f}'.format(l_s.get())
 
 def ls_changed(event):
     lsShow.configure(text=get_ls())
 
 def get_lv():
-    return '{: .0f}'.format(l_v.get())
+    return '{:.0f}'.format(l_v.get())
 
 def lv_changed(event):
     lvShow.configure(text=get_lv())
     
 def get_uh():
-    return '{: .0f}'.format(u_h.get())
+    return '{:.0f}'.format(u_h.get())
 
 def uh_changed(event):
     uhShow.configure(text=get_uh())
 
 def get_us():
-    return '{: .0f}'.format(u_s.get())
+    return '{:.0f}'.format(u_s.get())
 
 def us_changed(event):
     usShow.configure(text=get_us())
 
 def get_uv():
-    return '{: .0f}'.format(u_v.get())
+    return '{:.0f}'.format(u_v.get())
 
 def uv_changed(event):
     uvShow.configure(text=get_uv())
@@ -241,6 +251,12 @@ usShow.grid(row=3,column=1)
 uvShow = Label(resultFrame,text='0')
 uvShow.grid(row=3,column=2)
 
+cpyupperBtn = Button(resultFrame,text='Copy',command=get_lowerRange)
+cpyupperBtn.grid(row=0,column=3,rowspan=3)
+
+cpylowwerBtn = Button(resultFrame,text='Copy',command=get_upperRange)
+cpylowwerBtn.grid(row=3,column=3,rowspan=3)
+
 # Create a OpenCV video capture object
 cap = cv2.VideoCapture(camIndex)
 
@@ -250,3 +266,4 @@ update_frame()
 # Run the Tkinter event loop
 window.mainloop()
 cap.release()
+
