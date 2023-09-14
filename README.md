@@ -1,4 +1,4 @@
-# GUI-HSV-Range-Finder
+# Python HSV Range Finder
 Using the Tkinter GUI and OpenCV to filter and get the upper and lower HSV ranges from camera video capture
 
 ![](https://github.com/PerfecXX/GUI-HSV-Range-Finder/blob/main/doc/doc_filter_red.png)
