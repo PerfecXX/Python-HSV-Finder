@@ -8,7 +8,7 @@ import pyperclip
 
 # Author and version information
 __author__ = "Teeraphat Kullanankanjana"
-__version__ = "0.0.2"
+__version__ = "0.1.0"
 
 # Define the main class for the HSV Range Finder application
 class HSVRangeFinder:
