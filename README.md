@@ -36,3 +36,12 @@ pip install pillow
 ```python
 pip install pyperclip
 ```
+
+## How to use 
+
+```python
+
+gui = HSVRangeFinder()
+gui.run()
+
+```
